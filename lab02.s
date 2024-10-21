@@ -13,6 +13,18 @@ prog:
 # Write your code here!
 # Do not remove the prog label or write code above it!
 #-----------------------------
+    add  s0, zero, zero   
+loop:
+    beq  a1, zero, done  
+    lw   t1, 0(a0)
+    bne  t1, a2, ready
+    add  s0, a0, zero  
+ready: 
+    addi a0, a0, 4
+    addi a1, a1, -1
+    j    loop
+
+
 done:
     addi a7, zero, 10 
     ecall
